@@ -1,0 +1,76 @@
+<html>
+
+<head></head>
+
+<body>
+
+    <h1 id="id1"></h1>
+    <h1 id="id2"></h1>
+    <script>
+
+        {
+            var companyName = "Ford";
+            let country = "Ïndia";
+        }
+
+    </script>
+
+    <script>
+
+
+        var companyName;
+        document.getElementById("id1").innerHTML = name;
+        {
+            let country = "USA";
+            document.getElementById("id2").innerHTML = country;
+        }
+
+        // Numbers:
+        let length = 16;
+        let weight = 7.5;
+        console.log(length);
+
+        // Strings:
+        let color = "Yellow";
+        let lastName = "Johnson";
+
+        // Booleans
+        let x = true;
+        let y = false;
+
+        // Object:
+        const person = { firstName: "John", lastName: "Doe" };
+        console.log(person);
+
+        // Array object:
+        const cars = ["Saab", "Volvo", "BMW"];
+        console.log(cars);
+        // Date object:
+        const date = new Date("2022-03-25");
+        console.log(date);
+
+        // array of Object:
+        const persons = [{ firstName: "John", lastName: "Doe" },
+        { firstName: "John 2", lastName: "Doe 2" }];
+        console.log(persons);
+        console.log(typeof length);
+        console.log(typeof color);
+        console.log(typeof x);
+        console.log(typeof person);
+        console.log(typeof cars);
+
+        const car = {
+            name: "Ford", colour: "Red", price: 55000.0, dicount: 0.10,
+            finalPrice: function () { return this.price - (this.price * this.dicount) }
+        };
+        console.log(car);
+        car.name = "Ford Mustang";
+        car["colour"] = "Green";
+        console.log(car);
+        console.log(car.finalPrice());
+
+        console.log(car.finalPrice);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+// {
+// let name:string; // typing of data
+
+// name="Ford";
+
+// // console.log(name);
+// // name=25;
+// let isValid:boolean;
+// let age:number;
+// age=25;
+// // age=true;
+
+
+
+
+// }
+
+
+// function doSomething(x: string, y:number =25) {
+//     // == it check for only eqality of value
+//     // === it check for eqality of value && equaity of data type
+    
+//   if (x === null) { // strict type check with value
+//     // do nothing
+//   } else {
+//     console.log("Hello, " + x.toUpperCase()+" number :"+y);
+//   }
+// }
+// // doSomething(4567);
+// doSomething("hello",25);
+// // doSomething(25,25)
+
+// const car: { type: string, mileage?: number  } = { // no error
+//   type: "Toyota"
+// };
+// car.mileage = 2000;
+
+// class Product{
+//     id:number;
+//     name:string;
+//     constructor(id:number,name:string){
+//         this.id=id;
+//         this.name=name;
+//         }
+// }
+// let product :Product = new Product(1,"Laptop");
+// console.log(product);
+// //console.log(JSON.stringify(product));
+
+// let employee : {id:number,name:string,salary?:number};
+// employee = {id:10,name:"Ford",salary:2500};
+// console.log(employee);
+
+// enum Direction {
+//   NORTH,
+//   EAST,
+//   SOUTH,
+//   WEST
+// }
+// let currentDirection:Direction = Direction.NORTH;
+// // // logs 0
+// console.log(currentDirection);
+// // // throws error as 'North' is not a valid enum
+// // //currentDirection = 'North'; // Error: "North" is not assignable to type 'CardinalDirections'.
+// // currentDirection = Direction.West;
+
+// interface Rectangle {
+//   height: number,
+//   width: number
+// }
+
+// interface ColoredRectangle extends Rectangle {
+//   color: string
+// }
+
+// const coloredRectangle: ColoredRectangle = {
+//   height: 20,
+//   width: 10,
+//   color: "red"
+// };
+
+// let numbers:number[];
+// numbers=[1,2];
+// let names:string[];
+// names=[];
+// const countries :string[] = ["India","USA","UK"];
+// console.log(countries);
+// countries[1]="Ford India";
+// console.log(countries);
+// //countries = ["a","b"];//Cannot assign to 'countries' because it is a constant.
+
+// variable argument parameter
+
+function display( value:number=0, ...data: any[]){
+  console.log(data);
+}
+display(1,"ford");
+display(2,"ford","India");
+display(3,"ford","India","2023");
+display(1,"1","hello","[1,2,3]",{id:1,name:"sreenath"});
+
+// let x = 'hello';
+
+// console.log(((x as unknown) as number)); // x is not actually a number so this will return undefined
+
+
+class Product{
+    id:number;
+    name:string;
+    constructor(id:number,name:string){
+        this.id=id;
+        this.name=name;
+        }
+}
+class Person {
+  // name is a private member variable
+ // private name:string;
+  public constructor( private name: string,private readonly id:number,private salary:number) {
+   // this.name=name;
+  }
+
+  public getName(): string {
+    return this.name;
+  }
+  
+  public setName(name:string): void {
+    this.name=name;
+  }
+  public setId(id:number){
+    // this.id=id;
+  }
+  public getId():number{
+    return this.id;
+
+  }
+    public toString(): string {
+    return `Person : ${this.name}: ${this.id} :${this.salary} `;
+  }
+}
+
+const person:Person = new Person("Jane",1,25000.0);
+person.setName("Ford");
+console.log(person);
+
+
+function createPair<S, T>(v1: S, v2: T): [S, T] {
+  return [v1, v2];
+}
+console.log(createPair<string, number>('hello', 42));
+console.log(createPair<number, number>(2023, 3));
+
+console.log(createPair<number, Person>(1,person));
+
+class Employee<T> {
+  private _value: T | undefined;
+
+  constructor(private name: string) {}
+
+  public setValue(value: T|undefined) {
+    this._value = value;
+  }
+
+  public getValue(): T | undefined {
+    return this._value;
+  }
+
+  public toString(): string {
+    return `${this.name}: ${this._value}`;
+  }
+}
+
+let value = new Employee<Person>('Ford');
+value.setValue(person);
+console.log(value.toString()); // myNumber: myValue
+
+class Box<T>{
+    constructor( private data:T){};
+
+    public getData():T{
+        return this.data;
+    }
+    public setData(data:T):void{
+        this.data=data;
+    }
+}
+let numberBox :Box<number>;
+//numberBox = new Box<string>("India");
+numberBox = new Box<number>(100);

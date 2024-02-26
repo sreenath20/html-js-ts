@@ -1,0 +1,300 @@
+<html>
+
+<head>
+
+    <script src="myScript.js"></script>
+    <script>
+        function myFunction() { // eventHandler
+            //document.write("I got written by window!")
+            //window.alert("You clicked me..");
+            console.log("My first JS log");
+            document.getElementById("demo1").innerHTML = "Changed the para";
+        }
+        function loopDataFun() {
+            let j = 0;
+            for (let i = 0; i < 10; i++) {
+                console.log(i);
+            }
+            let person = { name: "someName", age: 25, address: "Chennai" };
+            // for in loop
+            for (let attribute in person) {
+                console.log(person[attribute]);
+            }
+            // for of loop
+            const numbsers = [1, 2, 3, 4, 5]
+            for (let data of numbsers) {
+                console.log(data);
+            }
+            const names = ["aa", "bb", "dd"]
+            for (let data of names) {
+                console.log(data);
+            }
+            const employees = [{ name: "emp1", age: 25, address: "address 1" }, { name: "emp2", age: 25, address: "address 2" }]
+
+            for (let emp of employees) {
+
+                for (let attribute in emp)
+                    console.log(emp[attribute]);
+
+            }
+
+            let setOfValues = new Set([1, 4, 7, 9]);
+            console.log(setOfValues);
+            setOfValues.add(9);
+            console.log(setOfValues);
+
+            let countryMap = new Map();
+            countryMap.set("India", "+91");
+            countryMap.set("USA", "+01");
+
+            console.log(countryMap.get("India"));
+            console.log(countryMap.values());
+
+            console.log(typeof countryMap);
+            console.log(countryMap instanceof Map);
+            console.log(countryMap instanceof Set);
+
+
+        }
+
+
+    </script>
+    <title>Web Application.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: linen;
+        }
+
+        h2 {
+            color: rgb(248, 8, 8);
+            margin-left: 40px;
+        }
+    </style>
+
+    <style>
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <button id="id001">this ref</button>
+    <script>
+
+        getName = function () {
+            console.log(this);
+            // return this.name;
+        }
+        getAge = () => {
+            console.log(this);
+            //  return this.age;
+        }
+        class Person {
+            name;
+            age;
+
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            getName = function () {
+                console.log(this);
+                // return this.name;
+            }
+            getAge = () => {
+                console.log(this);
+                //  return this.age;
+            }
+
+        }
+
+        const employee = new Person("Ford", 25);
+        //employee.getName();
+        // The window object calls the function:
+        window.addEventListener("load", getAge);
+
+        // A button object calls the function:
+        document.getElementById("id001").addEventListener("click", getAge);
+
+    </script>
+    <script>
+        let dispFun = (s) => console.log(s);
+
+        dispFun("Ford");
+        dispFun("India");
+
+    </script>
+    <button onclick="loopDataFun()">Loop</button>
+    <div>
+        <p id="demo1">
+            Regular content.
+        </p>
+        <button onclick="myFunction()"> change Para</button>
+        <button onclick="myFunction2()"> External JS</button>
+    </div>
+
+    <h3 id="demo">Using CSS to style an HTML Form</h3>
+
+    <script>
+        document.getElementById("demo").innerHTML = "My First JavaScript";
+    </script>
+
+
+
+    <div>
+        <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <h1 style="color:blue;text-align:center;">This is a heading in blue color</h1>
+    <h1>Heading 1 internal css</h1>
+    <h1>Heading 2</h1>
+
+    <p id="para1">
+        Id selector para
+    </p>
+
+    <p class="center">
+        class selector para
+    </p>
+
+    Hello Page
+    <h1 class="center">Hello Page</h1>
+    <p> here is para 1
+        here is p2
+    </p>
+    <pre>
+        p1 goes               here
+        p2
+    </pre>
+    <a href="https://www.w3schools.com">Visit W3Schools</a>
+
+    <img src="fish.jpg">
+
+    <h1 style="background-color:powderblue;">This is a heading</h1>
+    <p style="background-color:tomato;">This is a paragraph.</p>
+
+    <table>
+        <tr>
+            <th>Sl no</th>
+            <th>Name</th>
+            <th>Mobile No</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Sree</td>
+            <td>9886611546</td>
+
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Ford</td>
+            <td>99999999</td>
+
+        </tr>
+    </table>
+
+    <h1>Login Form: </h1>
+    <form>
+
+        <label for="uName">User Name:</label><br>
+        <input type="text" id="uName" value="" placeholder="user Name" size="5"><br>
+        <label for="pwd">User pwd:</label><br>
+        <input type="password" id="pwd" value="" placeholder="user password">
+
+        <input type="submit">
+
+        <input type="button" value="Login"><br>
+
+        <label for="company">Read Only:</label><br>
+        <input type="text" id="company" value="Ford India" readonly><br>
+
+
+        <label for="dis">Admin feature:</label><br>
+        <input type="checkbox" id="dis" value="Only for admin" disabled><br>
+
+        <label for="pin">PIN:</label><br>
+        <input type="text" id="pin" name="pin" maxlength="4" size="4">
+
+        <label for="datemax">Enter a date before 1980-01-01:</label>
+        <input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+
+        <label for="datemin">Enter a date after 2000-01-01:</label>
+        <input type="date" id="datemin" name="datemin" min="2020-01-02" max="2022-01-02"><br><br>
+
+        <label for="quantity">Quantity (between 1 and 5):</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="5">
+
+
+        <label for="country_code">Country code:</label>
+        <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code"
+            required><br><br>
+
+
+        <label for="phone">Enter a phone number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            title="Expected Phone format : 123-45-678" required><br>
+
+        <label for="phone">Enter email:</label><br>
+        <input type="email" id="phone" name="phone" placeholder="name@gmail.com" title="Expected valid email"
+            required><br>
+
+        <input type="submit" value="Submit">
+
+
+    </form>
+
+</body>
+
+</html>
